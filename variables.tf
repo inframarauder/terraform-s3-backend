@@ -3,7 +3,7 @@ variable "region" {
 }
 
 variable "profile" {
-  type = string
+  type    = string
   default = "default"
 }
 
@@ -12,6 +12,6 @@ variable "ubuntu_image_id" {
 }
 
 variable "instance_type" {
-  type = string
+  type    = string
   default = "t2.micro"
 }
