@@ -1,29 +1,8 @@
-provider "aws" {
-  region  = var.region
-  profile = var.profile
-}
-
-data "aws_ami" "ubuntu" {
-  most_recent = true
-  owners      = ["099720109477"] # Canonical
-
-  filter {
-    name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
-  }
-  
-  
-  filter {
-      name = "virtualization-type"
-      values = ["hvm"]
-  }
-}
-
-resource "aws_instance" "ubuntu-server" {
-  ami           = data.aws_ami.ubuntu.id
-  instance_type = var.instance_type
-
-  tags = {
-    Name = "tf-ec2"
+#creating an EC2 instance:
+resource "aws_instance" "web" {
+  ami = "ami-0f69c8b8c6f9d6c6b"
+  instance_type = "t2.micro"
+  tags {
+    Name = "HelloWorld"
   }
 }
